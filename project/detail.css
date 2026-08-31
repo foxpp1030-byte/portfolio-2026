@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "NeueMachina";
+  src: url("../font/NeueMachina-Regular.otf") format("opentype");
+  font-display: swap;
+}
+
+html,
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.project-popup-title {
+  font-family: "NeueMachina", "Pretendard", sans-serif !important;
+  letter-spacing: -0.035em;
+}
+
+.back {
+  font-family: "NeueMachina", sans-serif !important;
+  cursor: pointer;
+}
+
+.back:focus-visible {
+  outline: 2px solid #121212;
+  outline-offset: 4px;
+}
+
+.project-disclaimer {
+  font-size: 12px !important;
+  line-height: 1.5;
+}
+
+.frame-427318957 {
+  z-index: 2;
+  cursor: pointer;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.frame-427318957:hover {
+  background: rgba(0, 0, 0, 0.55);
+  transform: translateY(-2px);
+}
+
+.frame-427318957:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.project-deliverables-images {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.project-deliverables-images img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+body.has-replaced-deliverables .frame-427318955>.frame-427318942,
+body.has-replaced-deliverables .frame-427318956>.frame-4273189422 {
+  display: none !important;
+}
+
+.project-plan-link {
+  cursor: pointer;
+}
+
+.project-plan-link:focus-visible {
+  outline: 2px solid #121212;
+  outline-offset: 4px;
+}

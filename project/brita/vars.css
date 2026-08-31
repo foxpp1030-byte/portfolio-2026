@@ -1,0 +1,23 @@
+/* Figma Styles of your File */
+:root {
+  /* Colors */
+  /* Fonts */
+  /* Effects */
+  --01-box-shadow: 0px 4px 4px 5px rgba(233, 127, 255, 0.2);
+}
+/* Figma Color Variables of your File */
+[data-variable-collection-mode="mode-1"] {
+  /* mode-1 */
+  --: #ffcdcb;
+  --: #ff8c74;
+  --: #ff8c74;
+  --gray3: #efefef;
+  --gray2: #f6f6f6;
+  --gray6: #363636;
+  --gray1: #ffffff;
+  --main: #ffaf01;
+  --gray4: #cecece;
+  --sub: #7064ff;
+  --gray5: #696969;
+  --main-gd: #ffaf01;
+}

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX/UI Designer Portfolio</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font.css">
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+    <script src="js/plugin/splitting.min.js"></script>
+    <script src="js/plugin/scrolla.jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <script defer src="js/project-carousel.bundle.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- header -->
+        <header>
+            <div class="innerHeader">
+                <a href="index.html" class="title">2026 <br>UX/UI Portfolio</a>
+                <nav>
+                    <ul class="gnb">
+                        <li class="on"><a href="#top" class="on">HOME</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#work">WORK</a></li>
+                        <li><a href="#footer">CONTACT</a> </li>
+                    </ul>
+                </nav>
+                <div class="menuBox">
+                    <button class="button" type="button" aria-label="메뉴 열기" aria-controls="side-menu"
+                        aria-expanded="false">
+                        <span class="a"></span>
+                        <span class="b"></span>
+                        <span class="c"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="side-menu-dim" aria-hidden="true"></div>
+        <aside class="side-menu" id="side-menu" aria-hidden="true" inert>
+            <nav class="side-menu-nav" aria-label="사이드 메뉴">
+                <a href="#top" data-menu-link>HOME</a>
+                <a href="#about" data-menu-link>ABOUT</a>
+                <a href="#work" data-menu-link>WORK</a>
+                <a href="#footer" data-menu-link>CONTACT</a>
+            </nav>
+        </aside>
+        <!-- visual -->
+        <section class="visual" id="top">
+            <div class="bottomBox">
+                <p class="img cloud"><img src="img/cloud.png" alt="올라오는 구름"></p>
+                <div class="txtBox">
+                    <p>Doyeon's</p>
+                    <h2>Portfolio</h2>
+                </div>
+            </div>
+        </section>
+        <!-- visual2 -->
+        <section class="uiux">
+            <div class="lineBox">
+                <span class="circleBox"></span>
+                <span class="line"></span>
+            </div>
+            <div class="txtBox">
+                <p>I connect planning, UX structure, UI design and development collaboration<br>
+                    to create digital experiences that actually work.
+                </p>
+            </div>
+        </section>
+
+        <!--lineDesign  -->
+        <section class="lineDesign">
+            <span class="bird"><img src="img/bird.png" alt=""></span>
+            <div class="scroll-effect">
+                <div class="txt">
+                    <p>Hello</p>
+                </div>
+            </div>
+            <ul class="lineImg">
+                <li class="a"><img src="img/img01.png" alt=""></li>
+                <li class="b"><img src="img/img02.png" alt=""></li>
+                <li class="c"><img src="img/img03.png" alt=""></li>
+                <li class="d"><img src="img/img04.png" alt=""></li>
+                <li class="e"><img src="img/img05.png" alt=""></li>
+                <li class="f"><img src="img/img06.png" alt=""></li>
+                <li class="g"><img src="img/img07.png" alt=""></li>
+                <li class="h"><img src="img/img08.png" alt=""></li>
+            </ul>
+            <ul class="cloud">
+                <li class="i"><img src="img/img09.png" alt=""></li>
+                <li class="j"><img src="img/img10.png" alt=""></li>
+            </ul>
+        </section>
+
+        <!-- slogan-->
+        <section class="slogan">
+            <div class="inner">
+                <div class="titleBox en animate" data-animate="motion">
+                    <div data-splitting class="aa">UX/UI DESIGNER </div>
+                    <div data-splitting class="bb">FROM REQUIREMENTS </div>
+                    <div data-splitting class="cc">TO STRUCTURE, INTERFACE </div>
+                    <div data-splitting class="dd">DEVELOPMENT HANDOFF </div>
+                    <div data-splitting class="ee">AND FINAL QA</div>
+                </div>
+            </div>
+        </section>
+        <!-- about -->
+        <section id="about" class="about">
+            <div class="inner">
+                <div class="leftBox animate" data-animate="motion">
+                    <h2 class="tit">ABOUT</h2>
+                    <div class="txtBox" data-animate="motion">
+                        <p class="subTitle" data-animate="motion">
+                            안녕하세요, UX/UI 디자이너 김도연입니다.
+                        </p>
+                        <p>
+                            예쁜 화면을 만드는 것도 좋아하지만,<br> 그보다 사람들이 어렵지 않게 쓰고 자연스럽게 이해할 수 있는 <br> 디자인을 더 중요하게 생각합니다.
+                        </p>
+                        <p>
+                            사소한 부분도 그냥 넘기기보다 한 번 더 고민하면서, <br>
+                            더 좋은 답을 찾는 디자이너가 되고 싶습니다.
+                        </p>
+
+                    </div>
+                    <a href="#work" class="btn">WORK</a>
+                </div>
+                <div class="rightBox">
+                    <ul class="numList">
+                        <li>1</li>
+                        <li>1</li>
+                        <li>1</li>
+                    </ul>
+                    <div class="plusBox">
+                        <p>selected works</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- career -->
+        <section class="career">
+            <span class="a"><img src="img/Ellipse_02.png" alt=""></span>
+            <div class="circleBox" data-animate="motion">
+                <span class="a"></span>
+                <span class="b"></span>
+                <span class="c"></span>
+                <ul class="yearBox" data-animate="motion">
+                    <li class="a">2022</li>
+                    <li class="b">2025</li>
+                    <li class="c">2026</li>
+                </ul>
+            </div>
+            <div class="inner">
+                <h2 class="tit">CAREER</h2>
+                <ul class="topBox">
+                    <li class="a1 animate" data-animate="motion">
+                        <h3>BAKERY &amp; F&amp;B</h3>
+                        <p>2022.06 - 2025.06 | Bakery · Cafe</p>
+                        <h3>EXPERIENCE</h3>
+                        <p>
+                            - 런던베이글뮤지엄 · 핑크빅 숯라이브 근무<br>
+                            - 베이커리·디저트 생산 및 품질 관리<br>
+                            - 재고·위생 관리와 매장 운영 경험<br>
+                            - 고객 응대를 통한 사용자 관점 체득<br>
+                            - 팀 단위 일정·작업 우선순위 조율
+                        </p>
+                    </li>
+                    <li class="b1 animate" data-animate="motion">
+                        <h3>EZEN ACADEMY</h3>
+                        <p>2025.06 - 2025.12 | UX/UI Bootcamp</p>
+                        <h3>EXPERIENCE</h3>
+                        <p>
+                            - UX Research · IA · User Flow<br>
+                            - Wireframe · UI Design · Prototype<br>
+                            - Component · Style Guide<br>
+                            - HTML · CSS · JavaScript 기초<br>
+                            - UX/UI 팀 프로젝트 우수상 수상
+                        </p>
+                    </li>
+                    <li class="c1 animate" data-animate="motion">
+                        <h3>DESIGN AGENCY</h3>
+                        <p>2026.01 - 2026.08 | UX/UI Designer</p>
+                        <h3>EXPERIENCE</h3>
+                        <p>
+                            - 월 6~7개 외부 브랜드·내부 프로젝트 운영<br>
+                            - 전 페이지 PC·MO UX/UI 디자인 단독 수행<br>
+                            - 요구사항 분석, IA·Wireframe 작성<br>
+                            - 브랜드사 커뮤니케이션 및 피드백 반영<br>
+                            - 개발 협업, 구현 QA까지 전 과정 담당
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Recent work -->
+        <section id="work" class="con02">
+            <span class="b"><img src="img/Ellipse_03.png" alt=""></span>
+            <div class="title en">
+                <p class="a">Recent</p>
+                <p class="b en2">Work</p>
+            </div>
+            <div class="project-orbit-shell">
+                <div class="project-orbit-viewport" tabindex="0" aria-label="360도 프로젝트 캐러셀. 좌우로 드래그하거나 방향키로 회전하세요.">
+                    <canvas id="project-orbit-canvas" data-engine="three.js r183"></canvas>
+                    <ul class="workList">
+                        <li data-project-id="frosch"><a href="#">
+                                <div class="imgBox"><img src="img/thumb-frosch.png" alt="프로쉬 프로젝트 썸네일"></div>
+                            </a></li>
+                        <li data-project-id="brita"><a href="#">
+                                <div class="imgBox"><img src="img/thumb-brita.png" alt="브리타 프로젝트 썸네일"></div>
+                            </a></li>
+                        <li data-project-id="dewrow"><a href="#">
+                                <div class="imgBox"><img src="img/thumb-dewrow.png" alt="듀로우 프로젝트 썸네일"></div>
+                            </a></li>
+                        <li data-project-id="compressport"><a href="#">
+                                <div class="imgBox"><img src="img/thumb-compressport.png" alt="컴프레스포트 프로젝트 썸네일"></div>
+                            </a></li>
+                        <li data-project-id="aluvapro"><a href="#">
+                                <div class="imgBox"><img src="img/thumb-aluvapro.png" alt="알루바프로 프로젝트 썸네일"></div>
+                            </a></li>
+                        <li data-project-id="theblab"><a href="#">
+                                <div class="imgBox"><img src="img/thumb-theblab.png" alt="더비랩 프로젝트 썸네일"></div>
+                            </a></li>
+                        <li data-project-id="wellio"><a href="#">
+                                <div class="imgBox"><img src="img/thumb-wellio.png" alt="웰리오 프로젝트 썸네일"></div>
+                            </a></li>
+                        <li data-project-id="hey"><a href="#">
+                                <div class="imgBox"><img src="img/thumb-hey.png" alt="헤이 프로젝트 썸네일"></div>
+                            </a></li>
+                        <li data-project-id="grocerystuff"><a href="#">
+                                <div class="imgBox"><img src="img/thumb-grocery-stuff.png" alt="그로서리스터프 프로젝트 썸네일"></div>
+                            </a></li>
+                        <li data-project-id="brembo"><a href="#">
+                                <div class="imgBox"><img src="img/thumb-brembo.png" alt="브렘보 프로젝트 썸네일"></div>
+                            </a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project detail modal -->
+        <div class="project-detail-dim" aria-hidden="true"></div>
+        <aside class="project-detail" role="dialog" aria-modal="true" aria-hidden="true"
+            aria-labelledby="project-detail-title" inert>
+            <div class="project-detail-inner">
+                <button class="project-detail-close" type="button" aria-label="프로젝트 상세 닫기">
+                    <span></span><span></span>
+                </button>
+                <div class="project-detail-embed" aria-hidden="true">
+                    <iframe id="project-detail-frame" src="about:blank" title="프로젝트 상세" scrolling="no"></iframe>
+                </div>
+                <section class="project-detail-summary">
+                    <div class="project-detail-content">
+                        <p class="project-detail-period" id="project-detail-period"></p>
+                        <h3 id="project-detail-title">프로젝트명</h3>
+                        <dl class="project-detail-list">
+                            <div>
+                                <dt>소속 | 역할</dt>
+                                <dd id="project-detail-role"></dd>
+                            </div>
+                            <div>
+                                <dt>담당 업무</dt>
+                                <dd id="project-detail-scope"></dd>
+                            </div>
+                            <div>
+                                <dt>사용 툴</dt>
+                                <dd id="project-detail-tools"></dd>
+                            </div>
+                            <div>
+                                <dt>성과</dt>
+                                <dd id="project-detail-result"></dd>
+                            </div>
+                            <div>
+                                <dt>기여도</dt>
+                                <dd id="project-detail-contribution"></dd>
+                            </div>
+                        </dl>
+                        <nav class="project-detail-links" aria-label="프로젝트 바로가기">
+                            <a id="project-link-figma" class="project-link" href="#" target="_blank"
+                                rel="noopener">Figma</a>
+                            <a id="project-link-site" class="project-link" href="#" target="_blank" rel="noopener">실제
+                                사이트</a>
+                            <a id="project-link-landing" class="project-link" href="#" target="_blank"
+                                rel="noopener">랜딩페이지</a>
+                        </nav>
+                    </div>
+                    <figure class="project-detail-visual">
+                        <img id="project-detail-image" src="img/work_glowpick.png" alt="">
+                    </figure>
+                </section>
+                <section class="project-detail-gallery" aria-label="프로젝트 상세 이미지">
+                    <div class="project-detail-media-list" id="project-detail-media-list"></div>
+                </section>
+            </div>
+        </aside>
+
+        <!-- starslide -->
+        <section class="slide">
+            <ul class="star">
+                <li><img src="img/star.png" alt=""></li>
+                <li><img src="img/star.png" alt=""></li>
+                <li><img src="img/star.png" alt=""></li>
+                <li><img src="img/star.png" alt=""></li>
+                <li><img src="img/star.png" alt=""></li>
+            </ul>
+
+            <ul class="slideBox animate" data-animate="motion">
+                <li>UX_Strategy_UI_Design_Prototype</li>
+                <li>UX_Strategy_UI_Design_Prototype</li>
+                <li>UX_Strategy_UI_Design_Prototype</li>
+                <li>UX_Strategy_UI_Design_Prototype</li>
+                <li>UX_Strategy_UI_Design_Prototype</li>
+            </ul>
+
+            <ul class="slideBox_re animate" data-animate="motion">
+                <li>IA_Wireframe_Development_QA</li>
+                <li>IA_Wireframe_Development_QA</li>
+                <li>IA_Wireframe_Development_QA</li>
+                <li>IA_Wireframe_Development_QA</li>
+            </ul>
+        </section>
+
+        <!-- skills -->
+        <section class="skills">
+            <div class="inner">
+                <h2 class="tit">SKILLS</h2>
+                <ul class="top">
+                    <li><img src="img/img_ps.png" alt=""></li>
+                    <li><img src="img/img_ai.png" alt=""></li>
+                    <li><img src="img/img_figma.png" alt=""></li>
+                    <li><img src="img/img_mj.png" alt=""></li>
+                </ul>
+                <ul class="bottom">
+                    <li><img src="img/img_gpt.png" alt=""></li>
+                    <li><img src="img/img_js.png" alt=""></li>
+                    <li><img src="img/img_html.png" alt=""></li>
+                    <li><img src="img/img_css.png" alt=""></li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- handBox -->
+        <section class="handBox">
+            <p class="leftHand"><img src="img/leftHand.png" alt=""></p>
+            <p class="rightHand"><img src="img/rightHand.png" alt=""></p>
+        </section>
+
+
+        <!-- strength -->
+        <section class="portfolio">
+            <div class="textBox">
+                <h2>strength</h2>
+            </div>
+            <ul class="list">
+                <li class="a">
+                    <div class="box"><img src="img/strength01.png" alt=""></div>
+                </li>
+                <li class="b">
+                    <div class="box"><img src="img/strength02.png" alt=""></div>
+                </li>
+                <li class="a">
+                    <div class="box"><img src="img/strength03.png" alt=""></div>
+                </li>
+                <li class="b">
+                    <div class="box"><img src="img/strength04.png" alt=""></div>
+                </li>
+                <li class="a">
+                    <div class="box"><img src="img/strength05.png" alt=""></div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- white cloud -->
+        <section class="whitecloud">
+
+            <ul class="cloud">
+                <li class="aa"><img src="img/white01.png" alt=""></li>
+                <li class="bb"><img src="img/white02.png" alt=""></li>
+                <li class="cc"><img src="img/white03.png" alt=""></li>
+            </ul>
+
+            <div class="txtBox">
+                <p class="a">STRUCTURE</p>
+                <p class="b">COMMUNICATION</p>
+                <p class="c">EXECUTION</p>
+            </div>
+
+            <div class="blackcloud">
+                <div class="cloud">
+                    <img src="img/black_cloud2.png" alt="">
+                </div>
+                <div class="text">
+                    <p>I turn complex requests into clear structures,<br>
+                        align brand goals with user needs,<br>
+                        and carry the design through implementation.<br>
+                        For me, the final screen is only complete<br>
+                        when it works in the real service.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- portfolio process -->
+        <section class="process">
+            <div class="inner">
+                <h2 class="tit">Portfolio Process</h2>
+                <div class="txtBox">
+                    <p>Affinity Diagram을 통해 프로젝트와 경험을 분류하고 핵심 내용을 정리했습니다.<br>
+                        이를 바탕으로 정보의 우선순위와 사용자 흐름을 잡아 포트폴리오 전체 구조를 설계했습니다.</p>
+                </div>
+                <!-- <a href="#work" class="btn">WORK</a> -->
+                <p class="img"><img src="img/diamond.png" alt=""></p>
+                <div class="circleBox">
+                    <ul class="circle1">
+                        <span></span>
+                        <li>
+                            <h2>Discovery</h2>
+                            <p> - Background<br>
+                                - Desk research<br>
+                                - User needs<br>
+                                - Solutions</p>
+                        </li>
+                    </ul>
+                    <ul class="circle2">
+                        <span></span>
+                        <li>
+                            <h2>Define</h2>
+                            <p> - Brainstorming<br>
+                                - Afinity Diagram<br>
+                                - Concept / keyword<br>
+                                - Reference research</p>
+                        </li>
+                    </ul>
+                    <ul class="circle3">
+                        <span></span>
+                        <li>
+                            <h2>Design</h2>
+                            <p> - Design system<br>
+                                - Information Architecture<br>
+                                - Idea Sketch<br>
+                                - Wireframe</p>
+                        </li>
+                    </ul>
+                    <ul class="circle4">
+                        <span></span>
+                        <li>
+                            <h2>Deliver</h2>
+                            <p> - Prototype<br>
+                                - Development handoff<br>
+                                - UI QA</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- why me -->
+        <section class="whyme">
+            <div class="inner">
+                <h2 class="tit">Why me?</h2>
+
+                <ul class="card">
+                    <li class="a">
+                        <div class="card1">
+                            <div class="card-front"><img src="img/whyme01.png" alt=""></div>
+                            <div class="card-back"><img src="img/back01.png" alt=""></div>
+                        </div>
+                    </li>
+                    <li class="b">
+                        <div class="card2">
+                            <div class="card-front"><img src="img/whyme02.png" alt=""></div>
+                            <div class="card-back"><img src="img/back02.png" alt=""></div>
+                        </div>
+                    </li>
+                    <li class="c">
+                        <div class="card3">
+                            <div class="card-front"><img src="img/whyme03.png" alt=""></div>
+                            <div class="card-back"><img src="img/back03.png" alt=""></div>
+                        </div>
+                    </li>
+                    <li class="a">
+                        <div class="card4">
+                            <div class="card-front"><img src="img/whyme04.png" alt=""></div>
+                            <div class="card-back"><img src="img/back04.png" alt=""></div>
+                        </div>
+                    </li>
+                    <li class="b">
+                        <div class="card5">
+                            <div class="card-front"><img src="img/whyme05.png" alt=""></div>
+                            <div class="card-back"><img src="img/back05.png" alt=""></div>
+                        </div>
+                    </li>
+                    <li class="c">
+                        <div class="card6">
+                            <div class="card-front"><img src="img/whyme06.png" alt=""></div>
+                            <div class="card-back"><img src="img/back06.png" alt=""></div>
+                        </div>
+                    </li>
+                    <li class="a">
+                        <div class="card7">
+                            <div class="card-front"><img src="img/whyme07.png" alt=""></div>
+                            <div class="card-back"><img src="img/back07.png" alt=""></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- footer -->
+        <footer id="footer">
+            <div class="inner">
+                <div class="textWrap en">
+                    <p class="title">Want <span class="en2">work Together?</span>
+                    </p>
+                    <p class="contact en2">Contact me</p>
+                    <p><a href="mailto:foxpp1030@gmail.com">foxpp1030@gmail.com</a></p>
+                    <p class="mobile">Mobile: 010.8930.1524</p>
+                </div>
+                <div class="bottom en">
+                    <ul class="sns">
+                        <li><a href="#work">Selected Work</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                    <p class="copyright">Doyeon Kim Portfolio &#169;2026</p>
+                </div>
+
+            </div>
+
+        </footer>
+
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,2431 @@
+@charset "utf-8";
+/* 인코딩할 때 깨지지 말라고 붙여주는 것 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/*
+ * Fluid viewport scale
+ * 1920 기준 시안에서 rem 단위가 화면 너비에 맞춰 같은 비율로
+ * 같은 비율로 확대·축소됩니다. 별도의 미디어 쿼리는 사용하지 않습니다.
+ */
+html {
+    font-size: 0.0520833333vw;
+}
+
+/* fixed GNB를 고려한 내부 앵커 fallback 위치 */
+#top,
+#about,
+#work,
+#footer {
+    scroll-margin-top: calc(100rem + 12rem);
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    font-size: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+img {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+
+a img {
+    border: none;
+}
+
+li {
+    list-style: none;
+}
+
+address,
+em,
+i {
+    font-style: normal;
+}
+
+a:focus {
+    outline: none
+}
+
+button:focus {
+    outline: none
+}
+
+body {
+    font-family: 'pretendard';
+    font-size: 16rem;
+}
+
+.wrap {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #0B0B0B;
+}
+
+/* 공통요소 */
+.inner {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.tit {
+    font-size: 140rem;
+    color: #E97FFF;
+    font-weight: 500;
+    font-family: 'NeueMachina';
+}
+
+.txtBox {
+    font-family: 'pretendard';
+    font-size: 18rem;
+    line-height: 1.5;
+}
+
+/* header */
+header {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    height: 100rem;
+}
+
+/* height: 100rem;  */
+.innerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    padding: 0;
+    margin: 30rem auto;
+    box-sizing: border-box;
+}
+
+.innerHeader .title {
+    width: auto;
+    margin-right: auto;
+}
+
+.innerHeader nav {
+    width: auto;
+    display: flex;
+    cursor: pointer;
+}
+
+.innerHeader a {
+    color: #fff;
+    font-size: 20rem;
+}
+
+.innerHeader .gnb {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    gap: 28rem;
+}
+
+.innerHeader .gnb>li {
+    display: flex;
+    align-items: center;
+    height: 54rem;
+    border: 1rem solid #fff;
+    border-radius: 45rem;
+    padding: 0 31rem;
+    box-sizing: border-box;
+    font-size: 24rem;
+    background: #000;
+}
+
+.innerHeader .gnb>li>a {
+    display: block;
+    width: 100%;
+    color: #fff;
+    line-height: 1;
+}
+
+.innerHeader .menuBox {
+    width: 50rem;
+    height: 54rem;
+    flex: 0 0 50rem;
+    margin-left: 28rem;
+    position: relative;
+}
+
+.innerHeader .menuBox .button {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.innerHeader .menuBox .button span.a:after {
+    content: '';
+    width: 50rem;
+    height: 3rem;
+    background: #fff;
+    position: absolute;
+    right: 0;
+    top: calc(50% - 13.5rem);
+}
+
+.innerHeader .menuBox .button span.b:after {
+    content: '';
+    width: 40rem;
+    height: 3rem;
+    background: #fff;
+    position: absolute;
+    right: 0;
+    top: calc(50% - 1.5rem);
+}
+
+.innerHeader .menuBox .button span.c:after {
+    content: '';
+    width: 50rem;
+    height: 3rem;
+    background: #fff;
+    position: absolute;
+    right: 0;
+    top: calc(50% + 10.5rem);
+}
+
+/* GNB side menu */
+.side-menu-dim {
+    position: fixed;
+    z-index: 998;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.66);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .45s ease, visibility .45s ease;
+}
+
+.side-menu-dim.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.side-menu {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    display: flex;
+    /* 상단 GNB의 시작점부터 화면 오른쪽 끝까지만 덮습니다. */
+    width: var(--side-menu-width, 64vw);
+    height: 100dvh;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+    background: #0B0B0B;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform .6s cubic-bezier(.22, 1, .36, 1), visibility .6s;
+}
+
+.side-menu.is-open {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.side-menu-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: clamp(34px, 5.2vh, 68px);
+    width: 100%;
+    padding: 9vh 12%;
+    box-sizing: border-box;
+}
+
+.side-menu-nav a {
+    display: block;
+    color: #fff;
+    font-family: 'NeueMachina', 'pretendard', sans-serif;
+    font-size: clamp(48px, 4.1vw, 98px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -.035em;
+    transition: color .25s ease, transform .35s cubic-bezier(.22, 1, .36, 1);
+}
+
+.side-menu-nav a:hover,
+.side-menu-nav a:focus-visible {
+    color: #E97FFF;
+    transform: translateX(10px);
+    outline: none;
+}
+
+body.side-menu-open {
+    overflow: hidden;
+}
+
+body.side-menu-open header,
+body.side-menu-open header.active {
+    transform: none;
+    z-index: 1000;
+    background: transparent;
+    pointer-events: none;
+}
+
+body.side-menu-open .innerHeader .title,
+body.side-menu-open .innerHeader>nav {
+    opacity: 0;
+    visibility: hidden;
+}
+
+body.side-menu-open .menuBox {
+    pointer-events: auto;
+}
+
+body.side-menu-open .menuBox .button span:after {
+    background: #fff;
+}
+
+body.side-menu-open .menuBox .button span.a:after,
+body.side-menu-open .menuBox .button span.c:after {
+    top: calc(50% - 1.5rem);
+}
+
+body.side-menu-open .menuBox .button span.a:after {
+    transform: rotate(45deg);
+}
+
+body.side-menu-open .menuBox .button span.b:after {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+body.side-menu-open .menuBox .button span.c:after {
+    transform: rotate(-45deg);
+}
+
+.menuBox .button:hover span:after,
+.menuBox .button:focus-visible span:after {
+    background: #E97FFF;
+}
+
+.menuBox .button span:after {
+    transform-origin: center;
+    transition: top .45s cubic-bezier(.22, 1, .36, 1),
+        transform .45s cubic-bezier(.22, 1, .36, 1),
+        opacity .22s ease,
+        background-color .25s ease;
+}
+
+@media (max-width: 700px) {
+    .side-menu {
+        width: var(--side-menu-width, 78vw);
+    }
+
+    .side-menu-nav {
+        padding-right: 16%;
+        padding-left: 16%;
+    }
+
+    .side-menu-nav a {
+        font-size: clamp(42px, 13vw, 68px);
+    }
+}
+
+header.active {
+    transform: translateY(-100%);
+}
+
+/* 추가 */
+.innerHeader .gnb>li.on {
+    color: #E97FFF;
+    border: 1rem solid #E97FFF;
+}
+
+.innerHeader .gnb>li a.on {
+    color: #E97FFF;
+}
+
+
+
+/* visual */
+.visual {
+    width: 100%;
+    position: relative;
+    /* 기존 인트로 흐름은 유지하고 구름·타이틀 영역 높이만 아주 소폭 추가 */
+    padding-bottom: 30rem;
+    margin-bottom: 0;
+}
+
+.visual .bottomBox {
+    width: 100%;
+    position: relative;
+    left: auto;
+    bottom: auto;
+}
+
+.visual .bottomBox p.img {
+    width: 100%;
+}
+
+.visual .bottomBox p.img img {
+    display: block;
+    width: 110%;
+    max-width: none;
+}
+
+.visual .bottomBox .txtBox {
+    position: absolute;
+    bottom: 50rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+}
+
+.visual .bottomBox .txtBox p {
+    margin-bottom: 20rem;
+    font-size: 84rem;
+    color: #E97FFF;
+    border: 2rem solid #E97FFF;
+    border-radius: 100rem;
+    width: 360rem;
+    padding: 20rem 50rem 26rem;
+    text-align: center;
+    font-family: 'NeueMachina';
+    line-height: 1;
+}
+
+.visual .bottomBox .txtBox h2 {
+    font-size: 320rem;
+    font-family: 'NeueMachina';
+    font-weight: Regular;
+    line-height: 1;
+}
+
+/* 휠 스크롤에서도 구름·타이틀 transform이 프레임 단위로 끊기지 않게 처리 */
+.visual .cloud,
+.visual .txtBox p,
+.visual .txtBox h2 {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+/* uiux */
+.uiux {
+    width: 100%;
+    margin-bottom: 180rem;
+}
+
+.uiux .lineBox {
+    position: relative;
+    width: 100%;
+    left: 0;
+    height: 180rem;
+    margin-bottom: 110rem;
+}
+
+.uiux .lineBox .circleBox {
+    width: 150rem;
+    height: 150rem;
+    border-radius: 100%;
+    border: 2rem solid #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #0B0B0B;
+    z-index: 3;
+    /* 인트로 타임라인이 끝나기 전에는 화면에 노출되지 않도록 고정 */
+    opacity: 0;
+    visibility: hidden;
+}
+
+.uiux .lineBox .circleBox:before {
+    content: '';
+    width: 30rem;
+    height: 30rem;
+    border-radius: 100%;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.uiux .lineBox .line {
+    width: 100%;
+    height: 2rem;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    /* 새로고침 직후 GSAP이 초기화되기 전의 깜빡임 방지 */
+    opacity: 0;
+    visibility: hidden;
+}
+
+.uiux .txtBox {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.uiux .txtBox p {
+    font-size: 40rem;
+    color: #fff;
+}
+
+/* lilneDesign */
+.lineDesign {
+    width: 100%;
+    position: relative;
+    margin-bottom: 500rem;
+}
+
+.lineDesign .bird {
+    position: absolute;
+    left: 40%;
+    top: 2%;
+    z-index: 100;
+    ;
+}
+
+.lineDesign .scroll-effect .txt {
+    font-size: 100rem;
+    color: #000;
+    position: absolute;
+    top: 440rem;
+    left: 640rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.lineDesign .scroll-effect .txt.active {
+    opacity: 1;
+    z-index: 100;
+    /* 텍스트가 나타날 때 투명도를 1로 설정합니다. */
+}
+
+
+.lineDesign .lineImg {
+    position: relative;
+    width: 100%;
+    height: 4500rem;
+}
+
+.lineDesign .lineImg li {
+    position: absolute;
+}
+
+.lineDesign .lineImg li img,
+.lineDesign .cloud li img {
+    display: block;
+    width: 100%;
+}
+
+.lineDesign .lineImg li:nth-child(1),
+.lineDesign .lineImg li:nth-child(2) {
+    width: 1203rem;
+}
+
+.lineDesign .lineImg li:nth-child(3) {
+    width: 663rem;
+}
+
+.lineDesign .lineImg li:nth-child(4) {
+    width: 512rem;
+}
+
+.lineDesign .lineImg li:nth-child(5) {
+    width: 918rem;
+}
+
+.lineDesign .lineImg li:nth-child(6) {
+    width: 578rem;
+}
+
+.lineDesign .lineImg li:nth-child(7) {
+    width: 359rem;
+}
+
+.lineDesign .lineImg li:nth-child(8) {
+    width: 935rem;
+}
+
+.lineDesign .lineImg li:nth-child(1) {
+    left: 0;
+    top: 0;
+}
+
+.lineDesign .lineImg li:nth-child(2) {
+    left: 0;
+    top: 816rem;
+}
+
+.lineDesign .lineImg li:nth-child(3) {
+    right: 0;
+    top: 600rem;
+}
+
+.lineDesign .lineImg li:nth-child(4) {
+    right: 183rem;
+    top: 26%;
+}
+
+.lineDesign .lineImg li:nth-child(5) {
+    left: 0;
+    bottom: 1420rem;
+    z-index: 100;
+}
+
+.lineDesign .lineImg li:nth-child(6) {
+    left: 0;
+    bottom: 100rem;
+}
+
+.lineDesign .lineImg li:nth-child(7) {
+    right: 0;
+    bottom: 1600rem;
+}
+
+.lineDesign .lineImg li:nth-child(8) {
+    right: 0;
+    bottom: 75rem;
+}
+
+.lineDesign .cloud {
+    width: 100%;
+    position: absolute;
+    bottom: -0.2%;
+    left: 0;
+    height: 500rem;
+}
+
+.lineDesign .cloud li {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.lineDesign .cloud li:nth-child(1) {
+    top: 253rem;
+    left: 36%;
+    width: 865rem;
+}
+
+.lineDesign .cloud li:nth-child(2) {
+    width: 1920rem;
+}
+
+.lineDesign .cloud li img {
+    width: 100%;
+}
+
+/* slogan */
+.slogan {
+    margin-bottom: 300rem;
+}
+
+.slogan .titleBox {
+    font-size: 60rem;
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: 1.6rem;
+}
+
+.motion .char {
+    display: inline-block;
+    animation: slide-up2 0.4s cubic-bezier(.5, 0, .5, 1) both;
+    animation-delay: calc(70ms * var(--char-index));
+}
+
+@keyframes slide-up2 {
+    0% {
+        transform: translateX(30rem);
+        opacity: 0;
+    }
+
+    30% {
+        transform: translateX(30rem);
+        opacity: 0;
+    }
+}
+
+.motion .aa .char {
+    animation: slide-up2 0.6s cubic-bezier(.5, 0, .5, 1) both;
+}
+
+.motion .bb .char {
+    animation: slide-up2 0.8s cubic-bezier(.5, 0, .5, 1) both;
+}
+
+.motion .cc .char {
+    animation: slide-up2 1s cubic-bezier(.5, 0, .5, 1) both;
+}
+
+.motion .dd .char {
+    animation: slide-up2 1.6s cubic-bezier(.5, 0, .5, 1) both;
+}
+
+.motion .ee .char {
+    animation: slide-up2 1.4s cubic-bezier(.5, 0, .5, 1) both;
+}
+
+/* about */
+.about {
+    height: 100vh;
+    padding: 120rem 0 180rem;
+    box-sizing: border-box;
+}
+
+.about .inner {
+    display: flex;
+    width: 87%;
+}
+
+.about .inner .leftBox {
+    width: 35%;
+    margin-right: 50rem;
+}
+
+.about .inner .leftBox .tit {
+    margin-bottom: 50rem;
+}
+
+.about .inner .leftBox .txtBox {
+    color: #fff;
+}
+
+.about .inner .leftBox .txtBox .subTitle {
+    font-size: 28rem;
+    font-weight: 500;
+    margin-bottom: 30rem;
+    line-height: 1.3;
+    letter-spacing: -1rem;
+}
+
+/* .about .inner .leftBox .txtBox p {margin:20rem 0;} */
+.about .inner .leftBox .txtBox p:nth-child(3) {
+    margin-bottom: 40rem;
+}
+
+.about .inner .leftBox .btn {
+    display: block;
+    color: #fff;
+    font-size: 28rem;
+    border: 1rem solid #fff;
+    border-radius: 45rem;
+    width: 120rem;
+    height: 40rem;
+    padding: 10rem 20rem;
+    line-height: 40rem;
+    text-align: center;
+}
+
+@keyframes textAni1 {
+    0% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0;
+        transform: translate3d(0, 50rem, 0);
+    }
+}
+
+.about .inner .rightBox {
+    width: 55%;
+    position: relative;
+}
+
+.about .inner .rightBox .numList {
+    color: #fff;
+    display: flex;
+    font-size: 800rem;
+    font-family: 'NeueMachina';
+    position: absolute;
+    line-height: 0.65;
+    width: 679rem;
+    font-weight: 500;
+}
+
+.about .inner .rightBox .numList li {
+    position: absolute;
+    width: 40%;
+}
+
+.about .inner .rightBox .numList li:nth-child(1) {
+    -webkit-text-stroke: 3rem #fff;
+    color: transparent;
+    left: 0;
+    top: 0;
+}
+
+.about .inner .rightBox .numList li:nth-child(2) {
+    -webkit-text-stroke: 3rem #fff;
+    color: #0b0b0b;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+}
+
+.about .inner .rightBox .numList li:nth-child(3) {
+    right: 0;
+    top: 0;
+    -webkit-text-stroke: 2rem #fff;
+}
+
+.about .inner .rightBox .plusBox {
+    position: absolute;
+    right: -130rem;
+    bottom: 60rem;
+    width: 300rem;
+    height: 130rem;
+    padding-top: 100rem;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+
+.about .inner .rightBox .plusBox:before {
+    position: absolute;
+    content: '';
+    width: 80rem;
+    height: 10rem;
+    background: #E97FFF;
+    top: 34rem;
+}
+
+.about .inner .rightBox .plusBox:after {
+    position: absolute;
+    content: '';
+    width: 10rem;
+    height: 80rem;
+    background: #E97FFF;
+    top: 0rem;
+    left: 39rem;
+    transform: translateX(-50%);
+}
+
+.about .inner .rightBox .plusBox p {
+    font-size: 30rem;
+    color: #fff;
+}
+
+/* motion animation */
+.about .inner .leftBox.motion .tit {
+    animation-name: textAni1;
+    animation-duration: .8s;
+}
+
+.about .inner .leftBox.motion .txt {
+    animation-name: textAni1;
+    animation-duration: 1s;
+}
+
+.about .inner .leftBox.motion .txtBox {
+    animation-name: textAni1;
+    animation-duration: 1.2s;
+}
+
+.about .inner .leftBox.motion .btn {
+    animation-name: textAni1;
+    animation-duration: 1.4s;
+}
+
+
+
+/* career */
+.career {
+    height: 150vh;
+    padding: 180rem 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.career span.a {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 0rem;
+    width: 322rem;
+}
+
+.career span.a img {
+    display: block;
+    width: 100%;
+}
+
+.career span img {
+    filter: brightness(60%)
+}
+
+.career .circleBox {
+    position: absolute;
+    width: 100%;
+    height: 260rem;
+    left: 0;
+    top: 40%;
+}
+
+.career .circleBox span {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    border: 2rem dashed rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+}
+
+.career .circleBox span.a {
+    width: 1420rem;
+    height: 286rem;
+}
+
+.career .circleBox span.b {
+    width: 1790rem;
+    height: 433rem;
+}
+
+.career .circleBox span.c {
+    width: 2160rem;
+    height: 603rem;
+}
+
+.career .circleBox .yearBox {
+    position: absolute;
+    width: 893rem;
+    height: 20rem;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -210rem;
+}
+
+.career .circleBox .yearBox li {
+    position: absolute;
+    color: #fff;
+    font-size: 20rem;
+}
+
+.career .circleBox .yearBox li::before {
+    content: '';
+    width: 20rem;
+    height: 20rem;
+    border-radius: 100%;
+    background: #fff;
+    position: absolute;
+    top: -54rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.career .circleBox .yearBox li.b::before {
+    top: -40rem;
+}
+
+.career .circleBox .yearBox li.c::before {
+    width: 20rem;
+    height: 20rem;
+    background: #E97FFF;
+    top: -53rem
+}
+
+.career .circleBox .yearBox li.a {
+    left: 0;
+}
+
+.career .circleBox .yearBox li.b {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15rem
+}
+
+.career .circleBox .yearBox li.c {
+    right: 0;
+}
+
+
+
+
+
+.career .inner {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.career .inner ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.career .inner ul.topBox {
+    width: 1300rem;
+    height: 600rem;
+    color: #fff;
+    margin: 0 auto;
+}
+
+.career .inner ul.topBox li {
+    border-radius: 30rem;
+    border: 1.2rem solid #E97FFF;
+    padding: 40rem 50rem 20rem;
+    box-sizing: border-box;
+    margin: 20rem;
+    width: 3000rem;
+    height: 460rem;
+    margin-top: 100rem;
+    background: #0B0B0B;
+}
+
+.career .inner ul h3 {
+    margin-top: 30rem;
+    font-size: 23rem;
+    font-weight: 500;
+    margin-bottom: 4rem;
+}
+
+.career .inner ul.topBox li p {
+    line-height: 1.8;
+    color: #858585;
+}
+
+.career .inner ul.yearBox {
+    color: #fff;
+    margin: 0 auto;
+    width: 920rem;
+    font-size: 24rem;
+}
+
+
+.career .inner ul.topBox li.a1.motion {
+    animation-name: textup;
+    animation-duration: 0.8s;
+}
+
+.career .inner ul.topBox li.b1.motion {
+    animation-name: textup;
+    animation-duration: 1.4s;
+}
+
+.career .inner ul.topBox li.c1.motion {
+    animation-name: textup;
+    animation-duration: 1.8s;
+}
+
+@keyframes textup {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0;
+        transform: translate3d(0, 50rem, 0);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translate3d(0, 0rem, 20rem);
+    }
+}
+
+/* work · Three.js r183 cylinder carousel */
+.con02 {
+    position: relative;
+    width: 100%;
+    height: calc(100vh + 640rem);
+    height: min(1572rem, calc(100svh + 640rem));
+    margin: 0;
+    overflow: hidden;
+    color: #fff;
+    background: #000;
+    isolation: isolate;
+}
+
+.con02>span.b {
+    position: absolute;
+    right: -8vw;
+    bottom: -16vw;
+    z-index: 0;
+    display: block;
+    opacity: .24;
+    pointer-events: none;
+}
+
+.con02>span.b img {
+    display: block;
+    width: clamp(360rem, 36vw, 690rem);
+    filter: brightness(48%);
+}
+
+.con02>.title {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    padding-top: clamp(62rem, 12svh, 150rem);
+    box-sizing: border-box;
+    overflow: hidden;
+    color: #fff;
+    font-family: 'NeueMachina';
+    font-size: clamp(112rem, 10.2vw, 196rem);
+    font-weight: 500;
+    line-height: .82;
+    text-align: center;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.con02>.title .en2 {
+    font-size: clamp(148rem, 13.4vw, 258rem);
+}
+
+.project-orbit-shell {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.project-orbit-viewport {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    width: 100%;
+    height: 100vh;
+    height: min(932rem, 100svh);
+    overflow: hidden;
+    transform: translateY(-50%);
+    cursor: grab;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.project-orbit-viewport.is-dragging {
+    cursor: grabbing;
+}
+
+.project-orbit-viewport:focus-visible {
+    outline: 1rem solid #E97FFF;
+    outline-offset: -8rem;
+}
+
+#project-orbit-canvas {
+    position: relative;
+    left: -5%;
+    z-index: 2;
+    display: block;
+    width: 110%;
+    height: 100%;
+    opacity: 1 !important;
+    visibility: visible !important;
+    cursor: inherit;
+}
+
+/* WebGL 초기화 전에도 카드가 보이는 이미지 폴백 */
+.con02 .workList {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    display: flex;
+    width: max-content;
+    gap: 30rem;
+    margin: 0;
+    transform: translate(-50%, -50%);
+}
+
+.con02 .workList>li {
+    width: clamp(280rem, 24vw, 430rem);
+    height: clamp(360rem, 50svh, 550rem);
+    flex: 0 0 auto;
+}
+
+.con02 .workList>li>a,
+.con02 .workList .imgBox,
+.con02 .workList .imgBox img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.con02 .workList .imgBox {
+    overflow: hidden;
+}
+
+.con02 .workList .imgBox img {
+    object-fit: cover;
+}
+
+.con02.has-webgl-carousel .workList {
+    width: 1rem;
+    height: 1rem;
+    margin: -1rem;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* star */
+.slide {
+    height: 100vh;
+    padding: 0rem 0;
+    box-sizing: border-box;
+    margin-bottom: 200rem;
+}
+
+.slide .star {
+    display: flex;
+    width: 100%;
+    margin-bottom: 100rem;
+}
+
+.slide .star li {
+    text-align: center;
+    width: 20%;
+}
+
+.slide .star li img {
+    width: 90%;
+}
+
+.slideBox {
+    display: flex;
+    white-space: nowrap;
+    font-size: 145rem;
+    letter-spacing: -2rem;
+    font-weight: 500;
+    font-family: 'NeueMachina';
+}
+
+.slideBox li {
+    animation: slideBox 20s linear infinite;
+    padding: 0 30rem;
+}
+
+@keyframes slideBox {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.slideBox_re {
+    display: flex;
+    white-space: nowrap;
+    font-size: 145rem;
+    letter-spacing: -2rem;
+}
+
+.slideBox_re li {
+    animation: slideBox_re 20s linear infinite;
+    padding: 0 30rem;
+    -webkit-text-stroke: 2rem #fff;
+    color: transparent;
+}
+
+@keyframes slideBox_re {
+    0% {
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+
+/* SKILLS */
+.skills {
+    padding: 180rem 0;
+    box-sizing: border-box;
+}
+
+.skills .inner {
+    width: 100%;
+}
+
+.skills .inner .tit {
+    margin-bottom: 50rem;
+    margin-left: 145rem;
+}
+
+.skills .inner ul {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50rem;
+}
+
+.skills .inner ul li {
+    width: 25%;
+    text-align: center;
+}
+
+.skills .inner ul img {
+    width: 85%;
+}
+
+.skills .inner ul.top {
+    transform: translateX(-20%);
+}
+
+.skills .inner ul.bottom {
+    transform: translateX(20%);
+}
+
+.handBox {
+    position: relative;
+    height: 80vh;
+    padding: 150rem 0;
+}
+
+.handBox .leftHand {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1467rem;
+}
+
+.handBox .leftHand img,
+.handBox .rightHand img {
+    display: block;
+    width: 100%;
+}
+
+.handBox .rightHand {
+    width: 1510rem;
+    position: absolute;
+    right: 0;
+    bottom: 300rem;
+}
+
+/* portfolio */
+.portfolio {
+    position: relative;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio .textBox {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    z-index: 2;
+}
+
+.portfolio .textBox h2 {
+    font-size: 200rem;
+    letter-spacing: -5rem;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.portfolio .list {
+    display: flex;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.portfolio .list li {
+    width: 530rem;
+    height: 400rem;
+    flex-shrink: 0 !important;
+    padding: 0 30rem;
+}
+
+/* 'padding'은 가로 스크롤의 총 길이에 포함됨
+'flex-shrink' :0; 으로 적용할때 li가 너비를 자기 사이즈 (width)를 유지합니다. */
+
+.portfolio .list li .box {
+    width: 100%;
+}
+
+.portfolio .list li .box img {
+    width: 100%;
+}
+
+/* hover */
+.portfolio .list li .box:hover img {
+    transform: scale(0.98);
+    filter: brightness(60%);
+}
+
+.portfolio .list li .box:hover:after {
+    opacity: 0.8;
+}
+
+
+/* white cloud */
+.whitecloud {
+    width: 100%;
+    position: relative;
+    height: 150vh;
+}
+
+.whitecloud .cloud li:nth-child(1) {
+    position: absolute;
+    left: 0;
+    top: -40rem;
+    z-index: 1;
+    width: 1122rem;
+}
+
+.whitecloud .cloud li:nth-child(2) {
+    position: absolute;
+    right: 0;
+    top: -275rem;
+    z-index: 10;
+    width: 1289rem;
+}
+
+.whitecloud .cloud li:nth-child(3) {
+    position: absolute;
+    bottom: -1240rem;
+    z-index: 100;
+    width: 1920rem;
+}
+
+.whitecloud .cloud li img,
+.whitecloud .blackcloud img {
+    display: block;
+    width: 100%;
+}
+
+.whitecloud .txtBox {
+    padding: 200rem;
+    box-sizing: border-box;
+    position: relative;
+    height: 100vh;
+    z-index: 1000;
+}
+
+.whitecloud .txtBox p {
+    width: 70%;
+    color: #0c0b0b;
+    text-align: center;
+    text-transform: uppercase;
+    background-clip: border-box;
+    border: 1rem solid #000;
+    border-radius: 120rem;
+    font-size: 150rem;
+    margin: 0 auto;
+    background: #fff;
+}
+
+.whitecloud .txtBox .a {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-4deg);
+}
+
+.whitecloud .txtBox .b {
+    position: absolute;
+    top: 61%;
+    left: 50%;
+    font-size: 130rem;
+    transform: translateX(-50%) rotate(7deg);
+}
+
+.whitecloud .txtBox .c {
+    position: absolute;
+    top: 77%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-7deg);
+}
+
+.whitecloud .blackcloud {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 3000;
+    width: 100%;
+}
+
+.whitecloud .blackcloud .text {
+    color: #fff;
+    font-size: 26rem;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translatex(-50%);
+    text-align: center;
+}
+
+
+
+/* portfolio process */
+.process {
+    margin-top: 100rem;
+    position: relative;
+}
+
+.process .inner {
+    height: 150vh;
+}
+
+.process .inner .tit {
+    margin-bottom: 50rem;
+}
+
+.process .inner .txtBox {
+    padding-bottom: 30rem;
+    box-sizing: border-box;
+}
+
+.process .inner .btn {
+    display: block;
+    color: #fff;
+    font-size: 28rem;
+    border: 1rem solid #fff;
+    border-radius: 45rem;
+    width: 120rem;
+    height: 40rem;
+    padding: 10rem 20rem;
+    line-height: 40rem;
+    text-align: center;
+}
+
+.process .inner .img {
+    width: 100%;
+}
+
+.process .inner .img img {
+    width: 100%;
+}
+
+.process .circleBox {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.process .circleBox ul {
+    text-align: center;
+    margin: 20rem;
+}
+
+.process .circleBox ul h2 {
+    font-size: 30rem;
+}
+
+.process .circleBox ul li p {
+    margin-top: 20rem;
+    font-size: 22rem;
+}
+
+.process .circleBox .circle1 span {
+    display: inline-block;
+    border-radius: 50%;
+    width: 363rem;
+    height: 363rem;
+    position: absolute;
+    left: -54rem;
+    top: -587rem;
+    border: 2rem dashed #D8D8D8;
+}
+
+.process .circleBox .circle2 span {
+    display: inline-block;
+    border-radius: 50%;
+    width: 535rem;
+    height: 535rem;
+    position: absolute;
+    left: 66rem;
+    top: -670rem;
+    border: 2rem dashed #D8D8D8;
+}
+
+.process .circleBox .circle3 span {
+    display: inline-block;
+    border-radius: 50%;
+    width: 535rem;
+    height: 535rem;
+    position: absolute;
+    right: 64rem;
+    top: -671rem;
+    border: 2rem dashed #D8D8D8;
+}
+
+.process .circleBox .circle4 span {
+    display: inline-block;
+    border-radius: 50%;
+    width: 363rem;
+    height: 363rem;
+    position: absolute;
+    right: -56rem;
+    top: -584rem;
+    border: 2rem dashed #D8D8D8;
+}
+
+.process .circleBox .circle1:hover h2 {
+    transform: scale(1.1);
+    color: #E97FFF;
+}
+
+.process .circleBox .circle1:hover span {
+    border-color: #e97fff;
+}
+
+.process .circleBox .circle2:hover h2 {
+    transform: scale(1.1);
+    color: #E97FFF;
+}
+
+.process .circleBox .circle2:hover span {
+    border-color: #e97fff;
+}
+
+.process .circleBox .circle3:hover h2 {
+    transform: scale(1.1);
+    color: #E97FFF;
+}
+
+.process .circleBox .circle3:hover span {
+    border-color: #e97fff;
+}
+
+.process .circleBox .circle4:hover h2 {
+    transform: scale(1.1);
+    color: #E97FFF;
+}
+
+.process .circleBox .circle4:hover span {
+    border-color: #e97fff;
+}
+
+/* whyme */
+.whyme {
+    margin: 0 auto;
+    margin-top: 300rem;
+}
+
+.whyme .inner ul {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100vh;
+    margin: 70rem -16.3% 0;
+    padding-left: 450rem;
+    box-sizing: border-box;
+    gap: 110rem;
+}
+
+.whyme .inner ul li {
+    margin-left: 0;
+    flex: 0 0 370rem;
+    height: 546rem;
+}
+
+.whyme .inner li img {
+    display: block;
+    width: 100%;
+}
+
+.whyme .inner li .card1 {
+    width: 100%;
+    height: 100%;
+    transition: all 0.7s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.whyme .inner .card1:hover {
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card1>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.whyme .inner li .card1 .card-front {
+    z-index: 10;
+}
+
+.whyme .inner li .card1 .card-back {
+    z-index: 1;
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card1 img {
+    transition: all 0.5s;
+}
+
+.whyme .inner li .card2 {
+    width: 100%;
+    height: 100%;
+    transition: all 0.7s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.whyme .inner .card2:hover {
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card2>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.whyme .inner li .card2 .card-front {
+    z-index: 10;
+}
+
+.whyme .inner li .card2 .card-back {
+    z-index: 5;
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card2 img {
+    transition: all 0.5s;
+}
+
+
+.whyme .inner li .card3 {
+    width: 100%;
+    height: 100%;
+    transition: all 0.7s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.whyme .inner .card3:hover {
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card3>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.whyme .inner li .card3 .card-front {
+    z-index: 10;
+}
+
+.whyme .inner li .card3 .card-back {
+    z-index: 5;
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card3 img {
+    transition: all 0.5s;
+}
+
+
+.whyme .inner li .card4 {
+    width: 100%;
+    height: 100%;
+    transition: all 0.7s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.whyme .inner .card4:hover {
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card4>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.whyme .inner li .card4 .card-front {
+    z-index: 10;
+}
+
+.whyme .inner li .card4 .card-back {
+    z-index: 5;
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card4 img {
+    transition: all 0.5s;
+}
+
+
+.whyme .inner li .card5 {
+    width: 100%;
+    height: 100%;
+    transition: all 0.7s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.whyme .inner .card5:hover {
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card5>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.whyme .inner li .card5 .card-front {
+    z-index: 10;
+}
+
+.whyme .inner li .card5 .card-back {
+    z-index: 5;
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card5 img {
+    transition: all 0.5s;
+}
+
+
+.whyme .inner li .card6 {
+    width: 100%;
+    height: 100%;
+    transition: all 0.7s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.whyme .inner .card6:hover {
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card6>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.whyme .inner li .card6 .card-front {
+    z-index: 10;
+}
+
+.whyme .inner li .card6 .card-back {
+    z-index: 5;
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card6 img {
+    transition: all 0.5s;
+}
+
+.whyme .inner li .card7 {
+    width: 100%;
+    height: 100%;
+    transition: all 0.7s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.whyme .inner .card7:hover {
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card7>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.whyme .inner li .card7 .card-front {
+    z-index: 10;
+}
+
+.whyme .inner li .card7 .card-back {
+    z-index: 5;
+    transform: rotateY(180deg);
+}
+
+.whyme .inner li .card7 img {
+    transition: all 0.5s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer */
+footer {
+    width: 100%;
+    position: relative;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+footer .inner {
+    position: relative;
+    height: 100%;
+}
+
+footer .textWrap {
+    position: absolute;
+    width: 100%;
+    top: 30%;
+    left: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 160rem;
+    line-height: 1;
+    letter-spacing: -1rem;
+}
+
+footer .textWrap .title {
+    font-size: 30rem;
+    margin-bottom: 30rem;
+    padding-left: 0;
+    color: #E97FFF;
+}
+
+footer .textWrap .contact {
+    margin-bottom: 10rem;
+    font-family: 'NeueMachina';
+}
+
+footer .textWrap a {
+    display: block;
+    margin-top: -30rem;
+}
+
+footer .bottom {
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 30rem;
+    letter-spacing: -1rem;
+    font-family: 'NeueMachina';
+}
+
+footer .textWrap .mobile {
+    font-size: 40rem;
+    margin-top: 40rem;
+    font-family: 'NeueMachina';
+}
+
+footer .bottom .sns {
+    display: flex;
+}
+
+footer .bottom .sns li {
+    margin-right: 30rem;
+}
+
+
+/* project detail modal
+   Reference behavior: the dark background stays fixed, while the full-screen
+   overlay itself scrolls. The white detail card is never height-clamped, so it
+   grows naturally with all project images/content. */
+.project-detail-dim {
+    position: fixed;
+    inset: 0;
+    z-index: 9997;
+    background: rgba(0, 0, 0, 0.68);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.38s ease, visibility 0.38s ease;
+}
+
+.project-detail-dim.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* This is the scroll viewport, not the white card. */
+.project-detail {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    --project-detail-gap: clamp(28px, 4vw, 72px);
+    padding: var(--project-detail-gap);
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    color: #151515;
+    background: transparent;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-gutter: stable both-edges;
+    transition: opacity 0.34s ease, visibility 0.34s ease;
+}
+
+.project-detail.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* The card itself grows as long as its contents need. */
+.project-detail-inner {
+    position: relative;
+    width: min(1152px, 100%);
+    min-height: 0;
+    margin: 0 auto;
+    overflow: hidden;
+    color: #151515;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+    transform: translateY(42px) scale(0.992);
+    transform-origin: 50% 0;
+    transition: transform 0.68s cubic-bezier(.22, .8, .2, 1);
+}
+
+.project-detail.is-open .project-detail-inner {
+    transform: translateY(0) scale(1);
+}
+
+.project-detail-embed {
+    display: none;
+    width: 100%;
+    min-height: 560px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.project-detail-embed iframe {
+    display: block;
+    width: 100%;
+    height: 720px;
+    border: 0;
+    background: #fff;
+}
+
+.project-detail-inner.has-embedded-detail .project-detail-embed {
+    display: block;
+}
+
+.project-detail-inner.has-embedded-detail .project-detail-summary,
+.project-detail-inner.has-embedded-detail .project-detail-gallery {
+    display: none;
+}
+
+.project-detail-inner.has-embedded-detail>.project-detail-close {
+    display: none;
+}
+
+.project-detail-summary {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    min-height: min(64vh, 660px);
+    background: #fff;
+}
+
+.project-detail-visual {
+    min-height: 560px;
+    overflow: hidden;
+    background: #f1f1f1;
+}
+
+.project-detail-visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+    object-fit: cover;
+}
+
+.project-detail-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(42px, 3.7vw, 72px) clamp(30px, 3.2vw, 62px) clamp(36px, 3vw, 58px);
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.project-detail-period {
+    margin-bottom: 10px;
+    color: #787878;
+    font-size: clamp(13px, 0.94vw, 18px);
+    letter-spacing: 0.02em;
+}
+
+.project-detail-content>h3 {
+    margin-bottom: clamp(30px, 2.5vw, 48px);
+    color: #111;
+    font-family: 'NeueMachina';
+    font-size: clamp(42px, 3.2vw, 62px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.035em;
+}
+
+.project-detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(14px, 1vw, 20px);
+    color: #181818;
+    font-family: 'pretendard';
+    font-size: clamp(13px, 0.94vw, 18px);
+    line-height: 1.55;
+}
+
+.project-detail-list>div {
+    display: grid;
+    grid-template-columns: clamp(92px, 7.6vw, 146px) 1fr;
+    align-items: start;
+}
+
+.project-detail-list dt {
+    font-weight: 700;
+}
+
+.project-detail-list dd {
+    color: #4d4d4d;
+}
+
+.project-detail-list dd span {
+    display: block;
+}
+
+.project-detail-list dd span::before {
+    content: '·';
+    margin-right: 8px;
+    color: #111;
+}
+
+.project-detail-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: clamp(28px, 2.2vw, 42px);
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 112px;
+    padding: 13px 24px;
+    box-sizing: border-box;
+    color: #111;
+    font-family: 'pretendard';
+    font-size: clamp(13px, 0.83vw, 16px);
+    font-weight: 600;
+    line-height: 1;
+    border: 1px solid #111;
+    border-radius: 999px;
+    transition: color .3s ease, background .3s ease, border-color .3s ease;
+}
+
+.project-link:hover {
+    color: #fff;
+    background: #111;
+}
+
+.project-link[aria-disabled="true"] {
+    display: none;
+}
+
+.project-detail-close {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    z-index: 5;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.project-detail-close span {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    width: 20px;
+    height: 1px;
+    background: #111;
+}
+
+.project-detail-close span:first-child {
+    transform: rotate(45deg);
+}
+
+.project-detail-close span:last-child {
+    transform: rotate(-45deg);
+}
+
+.project-detail-close:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: 4px;
+}
+
+.project-detail-gallery {
+    padding: clamp(18px, 1.8vw, 34px) clamp(30px, 3.2vw, 62px) clamp(54px, 5vw, 96px);
+    background: #fff;
+    border-top: 1px solid #ececec;
+}
+
+.project-detail-media-list {
+    display: grid;
+    gap: clamp(16px, 1.5vw, 28px);
+}
+
+.project-detail-media {
+    overflow: hidden;
+    min-height: 260px;
+    background: #f2f2f2;
+    border-radius: 18px;
+}
+
+.project-detail-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 260px;
+    object-fit: cover;
+}
+
+body.project-detail-open {
+    overflow: hidden;
+}
+
+@media (max-width: 900px) {
+    .project-detail {
+        --project-detail-gap: 20px;
+        padding: var(--project-detail-gap);
+    }
+
+    .project-detail-inner {
+        width: 100%;
+        border-radius: 30px;
+    }
+
+    .project-detail-summary {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    .project-detail-content {
+        order: 1;
+        padding: 42px 24px 32px;
+    }
+
+    .project-detail-visual {
+        order: 2;
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+    }
+
+    .project-detail-visual img {
+        min-height: 0;
+    }
+
+    .project-detail-list>div {
+        grid-template-columns: 92px 1fr;
+    }
+
+    .project-detail-gallery {
+        padding: 16px 18px 44px;
+    }
+
+    .project-detail-close {
+        right: 16px;
+        top: 16px;
+        width: 38px;
+        height: 38px;
+    }
+
+    .project-detail-close span {
+        left: 9px;
+        width: 18px;
+    }
+}
+
+@media (max-width: 520px) {
+    .project-detail {
+        --project-detail-gap: 10px;
+        padding: var(--project-detail-gap);
+    }
+
+    .project-detail-inner {
+        width: 100%;
+        border-radius: 24px;
+    }
+
+    .project-detail-content>h3 {
+        padding-right: 34px;
+        font-size: clamp(34px, 11vw, 48px);
+    }
+
+    .project-detail-list>div {
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .project-link {
+        min-width: 0;
+        padding: 12px 18px;
+    }
+}
