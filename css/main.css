@@ -160,7 +160,7 @@ body {
 
 .txtBox {
     font-family: 'pretendard';
-    font-size: 18rem;
+    font-size: 21rem;
     line-height: 1.5;
 }
 
@@ -2348,84 +2348,4 @@ footer .bottom .sns li {
 
 body.project-detail-open {
     overflow: hidden;
-}
-
-@media (max-width: 900px) {
-    .project-detail {
-        --project-detail-gap: 20px;
-        padding: var(--project-detail-gap);
-    }
-
-    .project-detail-inner {
-        width: 100%;
-        border-radius: 30px;
-    }
-
-    .project-detail-summary {
-        display: flex;
-        flex-direction: column;
-        min-height: 0;
-    }
-
-    .project-detail-content {
-        order: 1;
-        padding: 42px 24px 32px;
-    }
-
-    .project-detail-visual {
-        order: 2;
-        min-height: 0;
-        aspect-ratio: 4 / 3;
-    }
-
-    .project-detail-visual img {
-        min-height: 0;
-    }
-
-    .project-detail-list>div {
-        grid-template-columns: 92px 1fr;
-    }
-
-    .project-detail-gallery {
-        padding: 16px 18px 44px;
-    }
-
-    .project-detail-close {
-        right: 16px;
-        top: 16px;
-        width: 38px;
-        height: 38px;
-    }
-
-    .project-detail-close span {
-        left: 9px;
-        width: 18px;
-    }
-}
-
-@media (max-width: 520px) {
-    .project-detail {
-        --project-detail-gap: 10px;
-        padding: var(--project-detail-gap);
-    }
-
-    .project-detail-inner {
-        width: 100%;
-        border-radius: 24px;
-    }
-
-    .project-detail-content>h3 {
-        padding-right: 34px;
-        font-size: clamp(34px, 11vw, 48px);
-    }
-
-    .project-detail-list>div {
-        grid-template-columns: 1fr;
-        gap: 3px;
-    }
-
-    .project-link {
-        min-width: 0;
-        padding: 12px 18px;
-    }
 }

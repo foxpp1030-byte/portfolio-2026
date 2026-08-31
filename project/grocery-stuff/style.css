@@ -301,14 +301,14 @@
 .frame-1261160757 {
   background: linear-gradient(to left, #040000, #040000);
   width: 500px;
-  height: 326px;
+  height: 500px;
   position: absolute;
   left: 50%;
   translate: -50% -50%;
   top: 50%;
   overflow: hidden;
   object-fit: cover;
-  aspect-ratio: 500/326;
+  aspect-ratio: 1;
 }
 .frame-427318955 {
   display: flex;
