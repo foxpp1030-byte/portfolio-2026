@@ -3,11 +3,11 @@
 
 @font-face {
     font-family: 'NeueMachina';
-    src: url(../font/NeueMachina-Regular.otf) format('truetype');
+    src: url(../font/NeueMachina-Regular.otf) format('opentype');
    }
 
 @font-face {
     font-family: 'NeueMachina';
-    src: url(../font/NeueMachina-Light.otf) format('truetype');
+    src: url(../font/NeueMachina-Light.otf) format('opentype');
    }
    

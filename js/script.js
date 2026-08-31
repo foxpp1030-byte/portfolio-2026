@@ -1,12 +1,12 @@
 // 1920 기준 모션 거리를 뷰포트 너비에 맞춰 조절합니다.
 const fluid = (value) => `${value}rem`;
 
-$(document).on('click', 'a[href="#"]', function (e) {
+$(document).on('click', 'a[href="#"]', function(e){
     e.preventDefault();
 });
 
 // header GNB side menu
-$(function () {
+$(function(){
     const menu = document.querySelector('.side-menu');
     const dim = document.querySelector('.side-menu-dim');
     const openButton = document.querySelector('.menuBox .button');
@@ -63,7 +63,7 @@ $(function () {
 // GNB / 내부 앵커 부드러운 섹션 이동
 // fixed header와 GSAP ScrollTrigger의 pin-spacer 때문에 기본 해시 점프가
 // 실제 보이는 위치와 어긋날 수 있어, 현재 레이아웃 기준 좌표를 다시 계산해 이동합니다.
-$(function () {
+$(function(){
     const internalLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
     let navScrollTimer = null;
 
@@ -130,7 +130,7 @@ $(function () {
 
 
 // Recent Work 프로젝트 상세 모달
-$(function () {
+$(function(){
     const projects = [
         {
             title: '프로쉬', period: '2026.05 ~ 07', role: 'ONS WEB | UX/UI Designer',
@@ -378,290 +378,290 @@ $(function () {
 });
 
 
-$(function () {
+$(function(){
     let prevScrollTop = 0;
-    document.addEventListener("scroll", function () {
-        const nowScrollTop = $(window).scrollTop();
+    document.addEventListener("scroll", function(){
+    const nowScrollTop = $(window).scrollTop();
 
-        if (document.body.classList.contains('side-menu-open') || document.body.classList.contains('nav-scrolling')) {
-            prevScrollTop = nowScrollTop;
-            return;
-        }
-        if (nowScrollTop > prevScrollTop) { $('header').addClass('active') }
-        else { $('header').removeClass('active') }
+    if(document.body.classList.contains('side-menu-open') || document.body.classList.contains('nav-scrolling')) {
         prevScrollTop = nowScrollTop;
+        return;
+    }
+    if(nowScrollTop > prevScrollTop){$('header').addClass('active')}
+    else{$('header').removeClass('active')}
+    prevScrollTop = nowScrollTop;
 
     });
 });
 
-$(function () {
-    $('.gnb > li > a').on('click', function () {
+$(function(){
+    $('.gnb > li > a').on('click', function(){
         const gnbindex = $('.gnb > li > a').index($(this));
         $('.gnb > li').removeClass('on');
-        $('.gnb > li:eq(' + gnbindex + ')').addClass('on');
+        $('.gnb > li:eq('+ gnbindex +')').addClass('on');
         $('.gnb > li > a').removeClass('on');
-        $('.gnb > li > a:eq(' + gnbindex + ')').addClass('on');
+        $('.gnb > li > a:eq('+ gnbindex +')').addClass('on');
     });
-
+   
 });
 
 
 
 // about 스크롤 애니
-$(function () {
-    $('.animate').scrolla({
-        mobile: true,
-        once: false
-    });
+$(function() {
+	$('.animate').scrolla({
+		mobile: true,
+		once: false
+	});    
 });
 
-$(function () {
+$(function(){
     Splitting();
 });
-
+     
 
 
 // 05 .con2의 my work 모션
 // start/end 타이밍 맞춘 기준 : My work 글씨가 화면에 보이자마자 글씨가 모이면서 글씨가 중앙에 왔을 때 종료되는 시점
 
-$(function () {
+$(function(){
     gsap.registerPlugin(ScrollTrigger);
 
-    // .01 visual intro
-    // 배/집/선/별 없이 구름부터 시작.
-    // 첫 구름만 6번 방식(opacity + 아래→위)으로 움직이고,
-    // 뒤쪽 cloud 요소들은 5번의 기존 동작을 그대로 유지합니다.
-    const visualIntro = gsap.timeline({
-        scrollTrigger: {
-            trigger: '.visual',
-            start: '0% 0%',
-            // 최초 코드의 빠른 인트로 진행 속도 유지
-            end: '60% 50%',
-            // 휠의 계단식 스크롤 값을 길게 보간해 따다닥 끊기는 느낌만 제거
-            scrub: 2.5,
+// .01 visual intro
+// 배/집/선/별 없이 구름부터 시작.
+// 첫 구름만 6번 방식(opacity + 아래→위)으로 움직이고,
+// 뒤쪽 cloud 요소들은 5번의 기존 동작을 그대로 유지합니다.
+const visualIntro = gsap.timeline({
+    scrollTrigger:{
+        trigger:'.visual',
+        start:'0% 0%',
+        // 최초 코드의 빠른 인트로 진행 속도 유지
+        end:'60% 50%',
+        // 휠의 계단식 스크롤 값을 길게 보간해 따다닥 끊기는 느낌만 제거
+        scrub:2.5,
+    }
+})
+
+// 5번에서 전역 .cloud에 걸리던 값을 뒤쪽 구름에 그대로 보존
+.fromTo('.lineDesign .cloud, .whitecloud > .cloud, .whitecloud .blackcloud .cloud',
+    { y: fluid(700) },
+    { y:0, ease:'none', duration:5 }, 0)
+
+// 첫 인트로 구름만 6번 방식
+.fromTo('.visual .cloud',
+    { y: fluid(420), opacity:0, force3D:true },
+    { y:0, opacity:1, force3D:true, ease:'power1.inOut', duration:5 }, 0)
+.fromTo('.visual .txtBox p',
+    { y: fluid(900), opacity:0, force3D:true },
+    { y:0, opacity:1, force3D:true, ease:'power1.inOut', duration:5 }, 1)
+.fromTo('.visual .txtBox h2',
+    { y: fluid(1200), opacity:0, force3D:true },
+    { y:0, opacity:1, force3D:true, ease:'power1.inOut', duration:5 }, 1.5)
+// Portfolio 제목이 완전히 올라온 뒤 원과 선을 순서대로 노출
+.fromTo('.uiux .lineBox .circleBox',
+    { autoAlpha:0, scale:0.85 },
+    { autoAlpha:1, scale:1, ease:'power1.out', duration:0.5 }, 6.5)
+.fromTo('.uiux .lineBox .line',
+    { width:'0%', autoAlpha:0, x:'50%', xPercent:'-50%' },
+    { width:'100%', autoAlpha:1, ease:'power1.inOut', duration:1.5 }, 6.7)
+
+
+//.ui/ux/ .lineBox
+gsap.timeline({
+    scrollTrigger:{
+        trigger:'.uiux',
+        start:'0% 80%',
+        end: '10% 50%',
+        scrub:1,
+    }
+})
+.fromTo('.uiux .txtBox p', { y: fluid(900), opacity:0 }, { y:0,opacity: 1,  ease:'none', duration:5},1)
+
+//.lineDesign
+$(document).ready(function() {
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+        var txtElement = $('.txt');
+
+        // 스크롤이 특정 위치(예: 200rem) 이상 내려갔을 때 효과 적용
+        if (scroll >= 50) {
+            txtElement.addClass('active');
+        } else {
+            txtElement.removeClass('active');
         }
-    })
-
-        // 5번에서 전역 .cloud에 걸리던 값을 뒤쪽 구름에 그대로 보존
-        .fromTo('.lineDesign .cloud, .whitecloud > .cloud, .whitecloud .blackcloud .cloud',
-            { y: fluid(700) },
-            { y: 0, ease: 'none', duration: 5 }, 0)
-
-        // 첫 인트로 구름만 6번 방식
-        .fromTo('.visual .cloud',
-            { y: fluid(420), opacity: 0, force3D: true },
-            { y: 0, opacity: 1, force3D: true, ease: 'power1.inOut', duration: 5 }, 0)
-        .fromTo('.visual .txtBox p',
-            { y: fluid(900), opacity: 0, force3D: true },
-            { y: 0, opacity: 1, force3D: true, ease: 'power1.inOut', duration: 5 }, 1)
-        .fromTo('.visual .txtBox h2',
-            { y: fluid(1200), opacity: 0, force3D: true },
-            { y: 0, opacity: 1, force3D: true, ease: 'power1.inOut', duration: 5 }, 1.5)
-        // Portfolio 제목이 완전히 올라온 뒤 원과 선을 순서대로 노출
-        .fromTo('.uiux .lineBox .circleBox',
-            { autoAlpha: 0, scale: 0.85 },
-            { autoAlpha: 1, scale: 1, ease: 'power1.out', duration: 0.5 }, 6.5)
-        .fromTo('.uiux .lineBox .line',
-            { width: '0%', autoAlpha: 0, x: '50%', xPercent: '-50%' },
-            { width: '100%', autoAlpha: 1, ease: 'power1.inOut', duration: 1.5 }, 6.7)
-
-
-    //.ui/ux/ .lineBox
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: '.uiux',
-            start: '0% 80%',
-            end: '10% 50%',
-            scrub: 1,
-        }
-    })
-        .fromTo('.uiux .txtBox p', { y: fluid(900), opacity: 0 }, { y: 0, opacity: 1, ease: 'none', duration: 5 }, 1)
-
-    //.lineDesign
-    $(document).ready(function () {
-        $(window).scroll(function () {
-            var scroll = $(window).scrollTop();
-            var txtElement = $('.txt');
-
-            // 스크롤이 특정 위치(예: 200rem) 이상 내려갔을 때 효과 적용
-            if (scroll >= 50) {
-                txtElement.addClass('active');
-            } else {
-                txtElement.removeClass('active');
-            }
-        });
     });
+});
 
-    //.lineDesign
+//.lineDesign
+gsap.timeline({
+    scrollTrigger:{
+        trigger:'.lineDesign',
+        start:'0% 80%',
+        end: '30% 50%',
+        scrub:1,
+    }
+})
+.fromTo('.bird', { x: fluid(-400), opacity:0 }, { x: fluid(20), opacity: 0.9,  ease:'ease-in', duration:3},1)
+.fromTo('.lineDesign .lineImg .a', { x: fluid(-500), opacity:0 }, { x:0, opacity: 1,  ease:'none', duration:5},0)
+.fromTo('.lineDesign .lineImg .b', { x: fluid(-500), opacity:0 }, { x:0, opacity: 1,  ease:'none', duration:5},0)
+.fromTo('.lineDesign .lineImg .c', { x: fluid(500), opacity:0 }, { x:0, opacity: 1,  ease:'none', duration:5},0)
+.fromTo('.lineDesign .lineImg .d', { x: fluid(1000), opacity:0 }, { x:0, opacity: 1,  ease:'none', duration:5},0)
+
+
+
+//.lineDesign
+gsap.timeline({
+    scrollTrigger:{
+        trigger:'.lineDesign',
+        start:'30% 80%',
+        end: '60% 0%',
+        scrub:1,
+    }
+})
+
+.fromTo('.lineDesign .lineImg .e', { x: fluid(-500), opacity:0 }, { x:0, opacity: 1,  ease:'none', duration:5},0)
+.fromTo('.lineDesign .lineImg .f', { x: fluid(-1000), opacity:0 }, { x:0, opacity: 1,  ease:'none', duration:5},0)
+.fromTo('.lineDesign .lineImg .g', { x: fluid(500), opacity:0 }, { x:0, opacity: 1,  ease:'none', duration:5},0)
+.fromTo('.lineDesign .lineImg .h', { x: fluid(1000), opacity:0 }, { x:0, opacity: 1,  ease:'none', duration:5},0)
+
+
+
+
+
+
+
+
+
+
+// cloud
+gsap.timeline({
+    scrollTrigger:{
+        trigger:'.lineDesign',
+        start:'0% 100%',
+        end: '100% 0%',
+        scrub:3,
+    }
+})
+
+.fromTo('.lineDesign .cloud .i', { y: fluid(1000)}, { y:0, ease:'none', duration:10},0)
+.fromTo('.lineDesign .cloud .j',{ y: fluid(500)},  { y:0,   ease:'none', duration:10},0)
+
+// about 숫자 겹침 모션
+gsap.registerPlugin(ScrollTrigger);
+
+$(function(){
     gsap.timeline({
-        scrollTrigger: {
-            trigger: '.lineDesign',
-            start: '0% 80%',
-            end: '30% 50%',
-            scrub: 1,
+        scrollTrigger:{
+            trigger:'.numList',
+            pin: true,
+            start:'50% 50%',
+            end:'100% 100%',
+            scrub: 2,
         }
     })
-        .fromTo('.bird', { x: fluid(-400), opacity: 0 }, { x: fluid(20), opacity: 0.9, ease: 'ease-in', duration: 3 }, 1)
-        .fromTo('.lineDesign .lineImg .a', { x: fluid(-500), opacity: 0 }, { x: 0, opacity: 1, ease: 'none', duration: 5 }, 0)
-        .fromTo('.lineDesign .lineImg .b', { x: fluid(-500), opacity: 0 }, { x: 0, opacity: 1, ease: 'none', duration: 5 }, 0)
-        .fromTo('.lineDesign .lineImg .c', { x: fluid(500), opacity: 0 }, { x: 0, opacity: 1, ease: 'none', duration: 5 }, 0)
-        .fromTo('.lineDesign .lineImg .d', { x: fluid(1000), opacity: 0 }, { x: 0, opacity: 1, ease: 'none', duration: 5 }, 0)
+    .to('.numList li:nth-child(1)',{x:'410rem', duration:5, ease:'none'},0.1)
+    .to('.numList li:nth-child(2)',{x:'205rem', duration:5, ease:'none'},0.3)
+    .to('.numList li:nth-child(3)',{x:'0rem', duration:5, ease:'none'},0.5)
+});
+
+// handBox
+gsap.timeline({
+    scrollTrigger:{
+        trigger:'.handBox',
+        start:'0% 80%',
+        end: '10% 50%',
+        scrub:1,
+    }
+})
+.fromTo('.handBox .leftHand', { x: fluid(-300) }, { x: 0, ease: 'none', duration: 5 }, 0) // 왼손 애니메이션: x 좌표 -300에서 0으로 이동
+.fromTo('.handBox .rightHand', { x: fluid(500) }, { x: 0, ease: 'none', duration: 5 }, 0.5); // 오른손 애니메이션: x 좌표 500에서 0으로 이동, 시작을 0.5초로 지연
+
+gsap.registerPlugin(ScrollTrigger);
+    
+        $(function(){
+            gsap.timeline({
+                scrollTrigger:{
+                    trigger:'.star',
+                    pin: true,
+                    start:'50% 50%',
+                    end:'100% 100%',
+                    scrub: 2,
+                }
+            })
+            .to('.star li:nth-child(1)',{y:'-100rem', duration:5, ease:'none'},0)
+            .to('.star li:nth-child(2)',{y:'100rem', duration:5, ease:'none'},0)
+            .to('.star li:nth-child(3)',{y:'-100rem', duration:5, ease:'none'},0)
+            .to('.star li:nth-child(4)',{y:'100rem', duration:5, ease:'none'},0)
+            .to('.star li:nth-child(5)',{y:'-100rem', duration:5, ease:'none'},0)
 
 
+    
+});
 
-    //.lineDesign
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: '.lineDesign',
-            start: '30% 80%',
-            end: '60% 0%',
-            scrub: 1,
-        }
-    })
-
-        .fromTo('.lineDesign .lineImg .e', { x: fluid(-500), opacity: 0 }, { x: 0, opacity: 1, ease: 'none', duration: 5 }, 0)
-        .fromTo('.lineDesign .lineImg .f', { x: fluid(-1000), opacity: 0 }, { x: 0, opacity: 1, ease: 'none', duration: 5 }, 0)
-        .fromTo('.lineDesign .lineImg .g', { x: fluid(500), opacity: 0 }, { x: 0, opacity: 1, ease: 'none', duration: 5 }, 0)
-        .fromTo('.lineDesign .lineImg .h', { x: fluid(1000), opacity: 0 }, { x: 0, opacity: 1, ease: 'none', duration: 5 }, 0)
-
-
-
-
-
-
-
-
-
-
-    // cloud
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: '.lineDesign',
-            start: '0% 100%',
-            end: '100% 0%',
-            scrub: 3,
-        }
-    })
-
-        .fromTo('.lineDesign .cloud .i', { y: fluid(1000) }, { y: 0, ease: 'none', duration: 10 }, 0)
-        .fromTo('.lineDesign .cloud .j', { y: fluid(500) }, { y: 0, ease: 'none', duration: 10 }, 0)
-
-    // about 숫자 겹침 모션
-    gsap.registerPlugin(ScrollTrigger);
-
-    $(function () {
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: '.numList',
-                pin: true,
-                start: '50% 50%',
-                end: '100% 100%',
-                scrub: 2,
-            }
-        })
-            .to('.numList li:nth-child(1)', { x: '410rem', duration: 5, ease: 'none' }, 0.1)
-            .to('.numList li:nth-child(2)', { x: '205rem', duration: 5, ease: 'none' }, 0.3)
-            .to('.numList li:nth-child(3)', { x: '0rem', duration: 5, ease: 'none' }, 0.5)
-    });
-
-    // handBox
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: '.handBox',
-            start: '0% 80%',
-            end: '10% 50%',
-            scrub: 1,
-        }
-    })
-        .fromTo('.handBox .leftHand', { x: fluid(-300) }, { x: 0, ease: 'none', duration: 5 }, 0) // 왼손 애니메이션: x 좌표 -300에서 0으로 이동
-        .fromTo('.handBox .rightHand', { x: fluid(500) }, { x: 0, ease: 'none', duration: 5 }, 0.5); // 오른손 애니메이션: x 좌표 500에서 0으로 이동, 시작을 0.5초로 지연
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    $(function () {
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: '.star',
-                pin: true,
-                start: '50% 50%',
-                end: '100% 100%',
-                scrub: 2,
-            }
-        })
-            .to('.star li:nth-child(1)', { y: '-100rem', duration: 5, ease: 'none' }, 0)
-            .to('.star li:nth-child(2)', { y: '100rem', duration: 5, ease: 'none' }, 0)
-            .to('.star li:nth-child(3)', { y: '-100rem', duration: 5, ease: 'none' }, 0)
-            .to('.star li:nth-child(4)', { y: '100rem', duration: 5, ease: 'none' }, 0)
-            .to('.star li:nth-child(5)', { y: '-100rem', duration: 5, ease: 'none' }, 0)
-
-
-
-    });
-
-    // skills
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: '.skills',
-            start: '45% 50%',
-            end: '10% 100%',
-            scrub: 1,
-        }
-    })
-        .fromTo('.skills .top', { x: fluid(800) }, { x: 0, ease: 'none', duration: 1 }, 0) // 왼손 애니메이션: x 좌표 -800에서 0으로 이동
-        .fromTo('.skills .bottom', { x: fluid(-800) }, { x: 0, ease: 'none', duration: 1 }, 0); // 오른손 애니메이션: x 좌표 800에서 0으로 이동, 시작을 0.5초로 지연
+// skills
+gsap.timeline({
+    scrollTrigger:{
+        trigger:'.skills',
+        start:'45% 50%',
+        end: '10% 100%',
+        scrub:1,
+    }
+})
+.fromTo('.skills .top', {x: fluid(800)}, {x: 0, ease: 'none', duration: 1}, 0) // 왼손 애니메이션: x 좌표 -800에서 0으로 이동
+.fromTo('.skills .bottom', {x: fluid(-800)}, {x: 0, ease: 'none', duration: 1}, 0); // 오른손 애니메이션: x 좌표 800에서 0으로 이동, 시작을 0.5초로 지연
 
 
 
 
-    // skills 
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: '.skills',
-            start: '0% 80%',
-            end: '30% 80%',
-            scrub: 1,
-            pin: true
-        }
-    })
-        .fromTo('.skills .top', { x: fluid(-1000) }, { x: fluid(300), ease: 'none', duration: 5, }, 0) // paused 속성 추가하여 애니메이션 일시정지
-        .fromTo('.skills .bottom', { x: fluid(1000) }, { x: fluid(-300), ease: 'none', duration: 5, }, 0);  // paused 속성 추가하여 애니메이션 일시정지
+// skills 
+gsap.timeline({
+    scrollTrigger:{
+        trigger:'.skills',
+        start:'0% 80%',
+        end: '30% 80%',
+        scrub:1,
+        pin: true
+    }
+})
+.fromTo('.skills .top', { x: fluid(-1000) }, { x: fluid(300), ease: 'none', duration: 5,}, 0) // paused 속성 추가하여 애니메이션 일시정지
+.fromTo('.skills .bottom', { x: fluid(1000) }, { x: fluid(-300), ease: 'none', duration: 5,}, 0);  // paused 속성 추가하여 애니메이션 일시정지
 
 
 
 
 
 
-    // con02 · 360° 프로젝트 캐러셀 진입 모션
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: '.con02',
-            start: '0% 88%',
-            end: '18% 58%',
-            scrub: 1,
-        }
-    })
-        .fromTo('.con02 .title .a', { x: '-100%' }, { x: '0%', ease: 'none', duration: 5 }, 0)
-        .fromTo('.con02 .title .b', { x: '100%' }, { x: '0%', ease: 'none', duration: 5 }, 0)
-        .to('.wrap', { backgroundColor: '#000', color: '#fff', ease: 'none', duration: 5 }, 0);
+// con02 · 360° 프로젝트 캐러셀 진입 모션
+gsap.timeline({
+    scrollTrigger:{
+        trigger: '.con02',
+        start:'0% 88%',
+        end: '18% 58%',
+        scrub:1,
+    }
+})
+.fromTo('.con02 .title .a', {x:'-100%'},{x:'0%', ease:'none', duration:5},0)
+.fromTo('.con02 .title .b', {x:'100%'},{x:'0%', ease:'none', duration:5},0)
+.to('.wrap', {backgroundColor: '#000', color:'#fff', ease:'none', duration:5},0);
 
 });
 
 
 // strength
-$(function () {
+$(function(){
     const list = gsap.utils.toArray('.portfolio .list li');
     const listA = gsap.utils.toArray('.portfolio .list .a');
     const listB = gsap.utils.toArray('.portfolio .list .b');
 
     gsap.to(list, {
-        xPercent: -100 * (list.length - 1),
-        ease: "none",
+        xPercent : -100 * (list.length - 1),
+        ease : "none",
         scrollTrigger: {
-            trigger: '.portfolio',
+            trigger:'.portfolio',
             pin: true,
-            scrub: 1,
-            start: 'center center',
-            end: '200%'
+            scrub:1,
+            start:'center center',
+            end:'200%'
         }
     });
 
@@ -669,20 +669,20 @@ $(function () {
     gsap.to(listA, {
         y: fluid(-50),
 
-        scrollTrigger: {
-            trigger: '.portfolio',
-            scrub: 2,
-            end: '100%'
+        scrollTrigger:{
+            trigger:'.portfolio',
+            scrub:2,
+            end:'100%'
         }
     })
 
     gsap.to(listB, {
         y: fluid(-150),
 
-        scrollTrigger: {
-            trigger: '.portfolio',
-            scrub: 2,
-            end: '100%'
+        scrollTrigger:{
+            trigger:'.portfolio',
+            scrub:2,
+            end:'100%'
         }
     })
 
@@ -690,66 +690,66 @@ $(function () {
 
 
 
-$(function () {
+$(function(){
     gsap.timeline({
-        scrollTrigger: {
+        scrollTrigger:{
             trigger: '.whitecloud',
-            start: '0% 100%',
+            start:'0% 100%',
             end: '0% 20%',
-            scrub: 1,
+            scrub:1,
         }
     })
 
-        .fromTo('.whitecloud .cloud .aa', { y: '0%' }, { y: '-100%', ease: 'none', duration: 3 }, 0)
-        .fromTo('.whitecloud .cloud .bb', { y: '0%' }, { y: '-100%', ease: 'none', duration: 3 }, 0)
-        .fromTo('.whitecloud .cloud .cc', { y: '0%' }, { y: '-100%', ease: 'none', duration: 3 }, 0)
-
+    .fromTo('.whitecloud .cloud .aa' , {y:'0%'},{y:'-100%',  ease:'none', duration:3},0)
+    .fromTo('.whitecloud .cloud .bb' , {y:'0%'},{y:'-100%',  ease:'none', duration:3},0)
+    .fromTo('.whitecloud .cloud .cc' , {y:'0%'},{y:'-100%',  ease:'none', duration:3},0)
+    
 });
 
-$(function () {
+$(function(){
     gsap.timeline({
-        scrollTrigger: {
+        scrollTrigger:{
             trigger: '.whitecloud .txtBox',
-            start: '0% 100%',
+            start:'0% 100%',
             end: '0% 10%',
-            scrub: 1,
+            scrub:1,
         }
-    })
-
-        .fromTo('.whitecloud .txtBox .a', { y: fluid(500) }, { y: fluid(-400), ease: 'none', duration: 4 }, 0)
-        .fromTo('.whitecloud .txtBox .b', { y: fluid(500) }, { y: fluid(-420), ease: 'none', duration: 4 }, 1)
-        .fromTo('.whitecloud .txtBox .c', { y: fluid(300) }, { y: fluid(-450), ease: 'none', duration: 4 }, 2)
+    })  
+  
+    .fromTo('.whitecloud .txtBox .a' , {y:fluid(500)},{y:fluid(-400),  ease:'none', duration:4},0)
+    .fromTo('.whitecloud .txtBox .b' , {y:fluid(500)},{y:fluid(-420),  ease:'none', duration:4},1)
+    .fromTo('.whitecloud .txtBox .c' , {y:fluid(300)},{y:fluid(-450),  ease:'none', duration:4},2)
 
 });
 
-$(function () {
+$(function(){
     gsap.timeline({
-        scrollTrigger: {
+        scrollTrigger:{
             trigger: '.whitecloud .blackcloud',
-            start: '0% 80%',
+            start:'0% 80%',
             end: '50% 40%',
-            scrub: 1,
+            scrub:1,
         }
     })
-        .fromTo('.whitecloud .blackcloud .cloud', { y: fluid(2000) }, { y: fluid(-500), ease: 'none', duration: 1 }, 0)
-        .fromTo('.whitecloud .blackcloud .text', { y: fluid(2800) }, { y: fluid(600), ease: 'none', duration: 1 }, 0)
+    .fromTo('.whitecloud .blackcloud .cloud', {y:fluid(2000)},{y:fluid(-500), ease:'none', duration:1},0)
+    .fromTo('.whitecloud .blackcloud .text', {y:fluid(2800)},{y:fluid(600),  ease:'none', duration:1},0)
 });
 
-$(function () {
+$(function(){
     gsap.registerPlugin(ScrollTrigger);
 
     const card = gsap.utils.toArray('.whyme .card li');
 
     gsap.to(card, {
-        xPercent: -100 * (card.length - 1),
-        ease: 'none',
-        scrollTrigger: {
-            trigger: '.whyme',
-            pin: true,
-            scrub: 1,
-            start: 'center center',
-            end: '200%'
-        }
-    });
+     xPercent: -100 * (card.length - 1),
+     ease:'none',
+     scrollTrigger: {
+         trigger: '.whyme',
+         pin: true,
+         scrub: 1,
+         start:'center center',
+         end: '200%'
+     }
+  });
 });
-
+    
