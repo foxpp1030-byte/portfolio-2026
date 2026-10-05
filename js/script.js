@@ -181,12 +181,6 @@ $(function(){
             image: null, media: [], figma: 'https://www.figma.com/proto/xVk6HzTia2kur1sEIdgzV9/2026-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4?node-id=1-402&viewport=153%2C112%2C0.35&t=jbGl5zik3YKxEPWw-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A402&page-id=0%3A1', site: 'https://www.figma.com/proto/tNJoRiFkPGrBVQYrP3Eloz/2026-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85?node-id=1-16737&p=f&viewport=340%2C927%2C0.14&t=Xyspa0ajUC0wOw6v-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A16737&page-id=0%3A1', landing: '#'
         },
         {
-            title: '헤이', period: '2025.10 ~ 12 · SIDE PROJECT', role: '막시무스 | UX/UI Designer',
-            scope: ['사용자·시장 리서치 및 서비스 방향성 도출', '페르소나 · IA · User Flow 설계', '가족 건강관리 서비스 기능 및 화면 기획', '디자인 시스템 및 주요 앱 화면 UX/UI 디자인', '프로토타입 제작'], tools: 'Figma, Photoshop, AI',
-            result: ['건강 루틴을 쉽고 재미있게 관리할 수 있도록 AI 캐릭터와 커뮤니티 기반의 지속 참여 경험 설계'], contribution: '커뮤니티 플로우 및 화면 디자인 · 디자인 시스템 구축', detail: 'project/hey/index.html',
-            image: null, media: [], figma: '#', site: '#', landing: '#'
-        },
-        {
             title: '그로서리스터프', period: '2026.03 · 06', role: 'ONS WEB | UX/UI Designer',
             scope: ['브랜드 요구사항 반영 및 화면 기획', '담당 범위 전 페이지 PC·MO UX/UI 디자인', '개발 협업 · UI QA'], tools: 'Figma, Photoshop, Illustrator',
             result: ['상품 탐색과 정보 전달 흐름을 기준으로 신규 화면 제작 및 운영 화면 리디자인', '상품 정보의 가독성과 쇼핑 과정의 화면 일관성을 중심으로 UI 정리'],

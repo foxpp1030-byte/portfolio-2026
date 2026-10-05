@@ -438,3 +438,14 @@
 .project-hero-simple .frame-427318957 {
   z-index: 2;
 }
+
+/* Wellio links: maintain contrast on white and light blue surfaces. */
+.bg-wellio .project-plan-link,
+.bg-wellio .project-plan-link:link,
+.bg-wellio .project-plan-link:visited {
+  color: #000000;
+}
+.bg-wellio .frame-427318957:hover,
+.bg-wellio .frame-427318957:focus-visible {
+  background: rgba(255, 255, 255, 0.88);
+}
