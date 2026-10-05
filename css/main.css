@@ -434,20 +434,59 @@ header.active {
 
 
 
-/* visual */
+/* visual — 처음 인트로만 원주희 레퍼런스의 구도와 길이로 복원 */
 .visual {
     width: 100%;
     position: relative;
-    /* 기존 인트로 흐름은 유지하고 구름·타이틀 영역 높이만 아주 소폭 추가 */
-    padding-bottom: 30rem;
-    margin-bottom: 0;
+    margin-bottom: 300rem;
 }
+
+.visual .topBox {
+    position: relative;
+}
+
+.visual .topBox .cover {
+    opacity: 0;
+}
+
+.visual .topBox .cover img {
+    display: block;
+    width: 100%;
+    max-width: none;
+}
+
+.visual .topBox .a,
+.visual .topBox .b {
+    position: absolute;
+    z-index: 100;
+    width: 0%;
+    overflow: hidden;
+}
+
+.visual .topBox .a {
+    left: 25%;
+    top: 17%;
+}
+
+.visual .topBox .b {
+    left: 54%;
+    top: 38%;
+}
+
+.visual .topBox .a img,
+.visual .topBox .b img {
+    display: block;
+    max-width: none;
+}
+
+.visual .topBox .a img { width: 602rem; }
+.visual .topBox .b img { width: 84rem; }
 
 .visual .bottomBox {
     width: 100%;
-    position: relative;
-    left: auto;
-    bottom: auto;
+    position: absolute;
+    left: 0;
+    bottom: -185rem;
 }
 
 .visual .bottomBox p.img {
@@ -488,7 +527,9 @@ header.active {
     line-height: 1;
 }
 
-/* 휠 스크롤에서도 구름·타이틀 transform이 프레임 단위로 끊기지 않게 처리 */
+.visual .topBox .cover,
+.visual .topBox .a,
+.visual .topBox .b,
 .visual .cloud,
 .visual .txtBox p,
 .visual .txtBox h2 {

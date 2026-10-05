@@ -427,43 +427,49 @@ $(function(){
 $(function(){
     gsap.registerPlugin(ScrollTrigger);
 
-// .01 visual intro
-// 배/집/선/별 없이 구름부터 시작.
-// 첫 구름만 6번 방식(opacity + 아래→위)으로 움직이고,
-// 뒤쪽 cloud 요소들은 5번의 기존 동작을 그대로 유지합니다.
-const visualIntro = gsap.timeline({
-    scrollTrigger:{
-        trigger:'.visual',
-        start:'0% 0%',
-        // 최초 코드의 빠른 인트로 진행 속도 유지
-        end:'60% 50%',
-        // 휠의 계단식 스크롤 값을 길게 보간해 따다닥 끊기는 느낌만 제거
-        scrub:2.5,
+// .01 visual intro — 배/집 → 점선/별 → 구름/타이틀 (레퍼런스 모션)
+// visual 밖의 섹션들은 도연 포트폴리오의 기존 스크립트를 그대로 유지.
+gsap.timeline({
+    scrollTrigger: {
+        trigger: '.visual',
+        start: '0% 0%',
+        end: '100% 100%',
+        scrub: 1,
     }
 })
+.to('.visual .topBox .cover', { opacity: 1, ease: 'none', duration: 5 }, 0)
+.fromTo('.visual .topBox .a', { width: '0%' }, { width: '100%', ease: 'none', duration: 5 }, 0)
+.fromTo('.visual .topBox .b', { width: '0%' }, { width: '100%', ease: 'none', duration: 5 }, 1);
 
-// 5번에서 전역 .cloud에 걸리던 값을 뒤쪽 구름에 그대로 보존
+const visualIntro = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.visual',
+        start: '0% 0%',
+        end: '100% 50%',
+        scrub: 1,
+    }
+})
+// 기존 뒤쪽 구름 모션은 유지
 .fromTo('.lineDesign .cloud, .whitecloud > .cloud, .whitecloud .blackcloud .cloud',
     { y: fluid(700) },
-    { y:0, ease:'none', duration:5 }, 0)
-
-// 첫 인트로 구름만 6번 방식
+    { y: 0, ease: 'none', duration: 5 }, 0)
+// 첫 인트로: 레퍼런스의 구름 상승과 타이틀 진행 순서
 .fromTo('.visual .cloud',
-    { y: fluid(420), opacity:0, force3D:true },
-    { y:0, opacity:1, force3D:true, ease:'power1.inOut', duration:5 }, 0)
+    { y: fluid(700) },
+    { y: 0, ease: 'none', duration: 5 }, 0)
 .fromTo('.visual .txtBox p',
-    { y: fluid(900), opacity:0, force3D:true },
-    { y:0, opacity:1, force3D:true, ease:'power1.inOut', duration:5 }, 1)
+    { y: fluid(900), opacity: 0 },
+    { y: 0, opacity: 1, ease: 'none', duration: 5 }, 1)
 .fromTo('.visual .txtBox h2',
-    { y: fluid(1200), opacity:0, force3D:true },
-    { y:0, opacity:1, force3D:true, ease:'power1.inOut', duration:5 }, 1.5)
-// Portfolio 제목이 완전히 올라온 뒤 원과 선을 순서대로 노출
+    { y: fluid(1200), opacity: 0 },
+    { y: 0, opacity: 1, ease: 'none', duration: 5 }, 1.5)
+// 기존 UI/UX 인트로 라인 모션은 유지
 .fromTo('.uiux .lineBox .circleBox',
-    { autoAlpha:0, scale:0.85 },
-    { autoAlpha:1, scale:1, ease:'power1.out', duration:0.5 }, 6.5)
+    { autoAlpha: 0, scale: 0.85 },
+    { autoAlpha: 1, scale: 1, ease: 'power1.out', duration: 0.5 }, 6.5)
 .fromTo('.uiux .lineBox .line',
-    { width:'0%', autoAlpha:0, x:'50%', xPercent:'-50%' },
-    { width:'100%', autoAlpha:1, ease:'power1.inOut', duration:1.5 }, 6.7)
+    { width: '0%', autoAlpha: 0, x: '50%', xPercent: '-50%' },
+    { width: '100%', autoAlpha: 1, ease: 'power1.inOut', duration: 1.5 }, 6.7);
 
 
 //.ui/ux/ .lineBox
